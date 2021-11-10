@@ -9,6 +9,10 @@ const URLSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  attemptsToShorten: {
+    type: Number,
+    default: 1,
+  },
   date: {
     type: String,
     default: Date.now,

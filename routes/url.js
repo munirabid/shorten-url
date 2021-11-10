@@ -39,6 +39,8 @@ router.post("/shorten", async (req, res) => {
 
       // url exist and return the respose
       if (url) {
+        url.attemptsToShorten = url.attemptsToShorten + 1;
+        await url.save();
         res.json(url);
       } else {
         // join the generated short code the the base url
@@ -52,7 +54,7 @@ router.post("/shorten", async (req, res) => {
           date: new Date(),
         });
         await url.save();
-        res.json(url);
+        res.status(201).json(url);
       }
     } catch (err) {
       // exception handler

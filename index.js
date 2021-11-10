@@ -8,8 +8,13 @@ app.use(
     extended: false,
   })
 );
+var corsOptions = {
+  optionsSuccessStatus: 200,
+  methods: "GET, POST",
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
+
 //parse incoming request body in JSON format.
 app.use("/", require("./routes/redirect"));
 app.use("/api/url", require("./routes/url"));
