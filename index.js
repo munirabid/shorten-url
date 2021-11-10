@@ -9,7 +9,7 @@ app.use(
   })
 );
 
-app.options("*", cors());
+app.use(cors());
 //parse incoming request body in JSON format.
 app.use("/", require("./routes/redirect"));
 app.use("/api/url", require("./routes/url"));
