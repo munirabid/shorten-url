@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-require("./config/db.config");
+require("./db/db.config");
 
 // // Database config
 // const connection = require("/config/db.config");
