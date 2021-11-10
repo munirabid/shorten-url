@@ -1,18 +1,15 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 require("./db/db.config");
-
-// // Database config
-// const connection = require("/config/db.config");
-// connection.once("open", () => console.log("DB Connected"));
-// connection.on("error", () => console.log("Error"));
-
 // Routes Config
 app.use(
   express.json({
     extended: false,
   })
 );
+
+app.options("*", cors());
 //parse incoming request body in JSON format.
 app.use("/", require("./routes/redirect"));
 app.use("/api/url", require("./routes/url"));
