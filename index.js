@@ -20,5 +20,8 @@ app.use("/", require("./routes/redirect"));
 app.use("/api/url", require("./routes/url"));
 
 //Listen for incoming requests
+
 const PORT = process.env.PORT;
 app.listen(PORT, console.log(`server started, listening PORT ${PORT}`));
+
+module.exports = app;
